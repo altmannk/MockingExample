@@ -17,18 +17,25 @@ class EmployeeTest {
     }
 
     @Test
-    @DisplayName("getId returns correct Id")
+    @DisplayName("getId returns correct id")
     void getIdReturnsCorrectId() {
         var result = employee.getId();
         assertThat(result).isEqualTo("123");
     }
 
     @Test
-    @DisplayName("setId returns correct id")
+    @DisplayName("setId sets correct id")
     void setIdReturnsCorrectId() {
         employee.setId("321");
         var result = employee.getId();
         assertThat(result).isEqualTo("321");
+    }
+
+    @Test
+    @DisplayName("getSalary returns correct salary")
+    void getSalaryReturnsCorrectSalary() {
+        var result = employee.getSalary();
+        assertThat(result).isEqualTo(24500.00);
     }
 
 }
