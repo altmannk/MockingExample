@@ -17,34 +17,41 @@ class EmployeeTest {
     }
 
     @Test
-    @DisplayName("getId returns correct id")
-    void getIdReturnsCorrectId() {
+    @DisplayName("getId should return correct id")
+    void getIdShouldReturnsCorrectId() {
         var result = employee.getId();
         assertThat(result).isEqualTo("123");
     }
 
     @Test
-    @DisplayName("setId sets correct id")
-    void setIdReturnsCorrectId() {
+    @DisplayName("setId should set correct id")
+    void setIdShouldSetCorrectId() {
         employee.setId("321");
         var result = employee.getId();
         assertThat(result).isEqualTo("321");
     }
 
     @Test
-    @DisplayName("getSalary returns correct salary")
-    void getSalaryReturnsCorrectSalary() {
+    @DisplayName("getSalary should return correct salary")
+    void getSalaryShouldReturnCorrectSalary() {
         var result = employee.getSalary();
         assertThat(result).isEqualTo(24500.00);
     }
 
     @Test
-    @DisplayName("setSalary sets correct salary")
-    void setSalarySetsCorrectSalary() {
+    @DisplayName("setSalary should set correct salary")
+    void setSalaryShouldSetCorrectSalary() {
         employee.setSalary(30000.00);
         var result = employee.getSalary();
         assertThat(result).isEqualTo(30000.00);
     }
 
+    @Test
+    @DisplayName("isPaid should return false by default as paid status")
+    void isPaidShouldReturnFalseByDefaultAsPaidStatus() {
+        var result = employee.isPaid();
+        assertThat(result).isFalse();
+    }
+    
 
 }
