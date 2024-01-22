@@ -52,6 +52,14 @@ class EmployeeTest {
         var result = employee.isPaid();
         assertThat(result).isFalse();
     }
-    
+
+    @Test
+    @DisplayName("setPaid should set paid status to true")
+    void setPaidShouldSetPaidStatusToTrue() {
+        employee.setPaid(true);
+        var result = employee.isPaid();
+        assertThat(result).isTrue();
+    }
+
 
 }
