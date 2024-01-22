@@ -23,4 +23,12 @@ class EmployeeTest {
         assertThat(result).isEqualTo("123");
     }
 
+    @Test
+    @DisplayName("setId returns correct id")
+    void setIdReturnsCorrectId() {
+        employee.setId("321");
+        var result = employee.getId();
+        assertThat(result).isEqualTo("321");
+    }
+
 }
