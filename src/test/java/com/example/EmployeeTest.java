@@ -13,7 +13,7 @@ class EmployeeTest {
 
     @BeforeEach
     void init(){
-        employee = new Employee("123", 24500.00);
+        employee = new Employee("123", 24500.0);
     }
 
     @Test
@@ -35,7 +35,7 @@ class EmployeeTest {
     @DisplayName("getSalary should return correct salary")
     void getSalaryShouldReturnCorrectSalary() {
         var result = employee.getSalary();
-        assertThat(result).isEqualTo(24500.00);
+        assertThat(result).isEqualTo(24500.0);
     }
 
     @Test
@@ -43,7 +43,7 @@ class EmployeeTest {
     void setSalaryShouldSetCorrectSalary() {
         employee.setSalary(30000.00);
         var result = employee.getSalary();
-        assertThat(result).isEqualTo(30000.00);
+        assertThat(result).isEqualTo(30000.0);
     }
 
     @Test
@@ -61,5 +61,11 @@ class EmployeeTest {
         assertThat(result).isTrue();
     }
 
+    @Test
+    @DisplayName("toString should return expected format")
+    void toStringShouldReturnExpectedFormat() {
+        var result = employee.toString();
+        assertThat(result).isEqualTo("Employee [id=123, salary=24500.0]");
+    }
 
 }
