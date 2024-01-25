@@ -16,33 +16,6 @@ class EmployeeTest {
         employee = new Employee("123", 24500.0);
     }
 
-
-    @Test
-    @DisplayName("setId should set correct id")
-    void setIdShouldSetCorrectId() {
-        employee.setId("321");
-        var result = employee.getId();
-        assertThat(result).isEqualTo("321");
-    }
-
-
-    @Test
-    @DisplayName("setSalary should set correct salary")
-    void setSalaryShouldSetCorrectSalary() {
-        employee.setSalary(30000.00);
-        var result = employee.getSalary();
-        assertThat(result).isEqualTo(30000.0);
-    }
-
-
-    @Test
-    @DisplayName("setPaid should set paid status to true")
-    void setPaidShouldSetPaidStatusToTrue() {
-        employee.setPaid(true);
-        var result = employee.isPaid();
-        assertThat(result).isTrue();
-    }
-
     @Test
     @DisplayName("Getting Employee attributes then values should match initial values")
     void gettingEmployeeAttributesThenValuesShouldMatchInitialValues() {
@@ -53,6 +26,18 @@ class EmployeeTest {
         assertThat(employeeId).isEqualTo("123");
         assertThat(employeeSalary).isEqualTo(24500.0);
         assertThat(isEmployeePaid).isFalse();
+    }
+
+    @Test
+    @DisplayName("Setting Employee attributes then value should be updated")
+    void settingEmployeeAttributesThenValueShouldBeUpdated() {
+        employee.setId("321");
+        employee.setSalary(30000.0);
+        employee.setPaid(true);
+
+        assertThat(employee.getId()).isEqualTo("321");
+        assertThat(employee.getSalary()).isEqualTo(30000.0);
+        assertThat(employee.isPaid()).isTrue();
     }
 
     @Test
