@@ -16,12 +16,6 @@ class EmployeeTest {
         employee = new Employee("123", 24500.0);
     }
 
-    @Test
-    @DisplayName("getId should return correct id")
-    void getIdShouldReturnsCorrectId() {
-        var result = employee.getId();
-        assertThat(result).isEqualTo("123");
-    }
 
     @Test
     @DisplayName("setId should set correct id")
@@ -31,12 +25,6 @@ class EmployeeTest {
         assertThat(result).isEqualTo("321");
     }
 
-    @Test
-    @DisplayName("getSalary should return correct salary")
-    void getSalaryShouldReturnCorrectSalary() {
-        var result = employee.getSalary();
-        assertThat(result).isEqualTo(24500.0);
-    }
 
     @Test
     @DisplayName("setSalary should set correct salary")
@@ -46,12 +34,6 @@ class EmployeeTest {
         assertThat(result).isEqualTo(30000.0);
     }
 
-    @Test
-    @DisplayName("isPaid should return false by default as paid status")
-    void isPaidShouldReturnFalseByDefaultAsPaidStatus() {
-        var result = employee.isPaid();
-        assertThat(result).isFalse();
-    }
 
     @Test
     @DisplayName("setPaid should set paid status to true")
@@ -59,6 +41,18 @@ class EmployeeTest {
         employee.setPaid(true);
         var result = employee.isPaid();
         assertThat(result).isTrue();
+    }
+
+    @Test
+    @DisplayName("Getting Employee attributes then values should match initial values")
+    void gettingEmployeeAttributesThenValuesShouldMatchInitialValues() {
+        var employeeId = employee.getId();
+        var employeeSalary = employee.getSalary();
+        var isEmployeePaid = employee.isPaid();
+
+        assertThat(employeeId).isEqualTo("123");
+        assertThat(employeeSalary).isEqualTo(24500.0);
+        assertThat(isEmployeePaid).isFalse();
     }
 
     @Test
