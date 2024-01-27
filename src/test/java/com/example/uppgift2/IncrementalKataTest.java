@@ -29,4 +29,11 @@ public class IncrementalKataTest {
         assertThat(result).isEqualTo(3);
     }
 
+    @Test
+    @DisplayName("Unknown amount of numbers should return sum")
+    void unknownAmountOfNumbersShouldReturnSum() {
+        int result = IncrementalKata.add("1,2,3,4,5");
+        assertThat(result).isEqualTo(15);
+    }
+
 }
