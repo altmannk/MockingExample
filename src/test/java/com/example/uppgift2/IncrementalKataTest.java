@@ -22,4 +22,11 @@ public class IncrementalKataTest {
         assertThat(IncrementalKata.add("1")).isEqualTo(1);
     }
 
+    @Test
+    @DisplayName("Two string numbers should return sum")
+    void twoStringNumbersShouldReturnSum() {
+        int result = IncrementalKata.add("1,2");
+        assertThat(result).isEqualTo(3);
+    }
+
 }
