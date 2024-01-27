@@ -3,6 +3,7 @@ package com.example.uppgift2;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.*;
 
 public class IncrementalKataTest {
@@ -48,6 +49,15 @@ public class IncrementalKataTest {
     void stringWithCustomDelimiterShouldReturnSum() {
         int result = IncrementalKata.add("//;\n1;2");
         assertThat(result).isEqualTo(3);
+    }
+
+    @Test
+    @DisplayName("A negative number should throw exception with message 'negatives not allowed'")
+    void aNegativeNumberShouldThrowException() {
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+            IncrementalKata.add("-1");
+        });
+        assertThat(thrown.getMessage()).isEqualTo("negatives not allowed -1");
     }
 
 }

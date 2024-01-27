@@ -20,8 +20,12 @@ public class IncrementalKata {
             throw new IllegalArgumentException("Error: invalid input, contains ',\\n'");
 
         int sum = 0;
-        for (String num : numArray) {
-            sum += Integer.parseInt(num);
+        for (String element : numArray) {
+            int num = Integer.parseInt(element);
+            if (num < 0)
+                throw new IllegalArgumentException("negatives not allowed " + num);
+
+            sum += num;
         }
         return sum;
     }
