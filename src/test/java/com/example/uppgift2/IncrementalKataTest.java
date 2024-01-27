@@ -36,4 +36,11 @@ public class IncrementalKataTest {
         assertThat(result).isEqualTo(15);
     }
 
+    @Test
+    @DisplayName("New lines between string numbers should return sum")
+    void newLinesBetweenStringNumbersShouldReturnSum() {
+        int result = IncrementalKata.add("1\n2,3");
+        assertThat(result).isEqualTo(6);
+    }
+
 }
