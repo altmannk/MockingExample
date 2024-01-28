@@ -90,4 +90,11 @@ public class IncrementalKataTest {
         assertThat(result).isEqualTo(6);
     }
 
+    @Test
+    @DisplayName("Multiple delimiters with length longer than one char should return sum")
+    void multipleDelimitersWithLengthLongerThanOneCharShouldReturnSum() {
+        int result = IncrementalKata.add("//[***][%%%%%]\n1***2%%%%%3");
+        assertThat(result).isEqualTo(6);
+    }
+
 }
