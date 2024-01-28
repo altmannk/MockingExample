@@ -76,4 +76,11 @@ public class IncrementalKataTest {
         assertThat(result).isEqualTo(2);
     }
 
+    @Test
+    @DisplayName("Custom delimiter of any length should return sum")
+    void customDelimiterOfAnyLengthShouldReturnSum() {
+        int result = IncrementalKata.add("//[***]\n1***2***3");
+        assertThat(result).isEqualTo(6);
+    }
+
 }

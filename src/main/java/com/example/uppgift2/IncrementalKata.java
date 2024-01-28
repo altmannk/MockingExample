@@ -1,5 +1,7 @@
 package com.example.uppgift2;
 
+import java.util.regex.Pattern;
+
 public class IncrementalKata {
 
 
@@ -9,9 +11,11 @@ public class IncrementalKata {
 
         String delimiter = "[,|\n]";
         if (numbers.startsWith("//")) {
-            int delimiterIndex = numbers.indexOf("\n");
-            delimiter = numbers.substring(2, delimiterIndex);
-            numbers = numbers.substring(delimiterIndex + 1);
+            int delStartIndex = numbers.indexOf("//") + 2;
+            int delEndIndex = numbers.indexOf("\n");
+            String customDelimiter = numbers.substring(delStartIndex, delEndIndex);
+            delimiter = "[" + Pattern.quote(customDelimiter) + "|\n]";
+            numbers = numbers.substring(delEndIndex + 1);
         }
 
         String[] numArray = numbers.split(delimiter);
@@ -29,10 +33,12 @@ public class IncrementalKata {
 
         int sum = 0;
         for (String element : numArray) {
-            int num = Integer.parseInt(element);
-            if (num > 1000)
-                num = 0;
-            sum += num;
+            if (!element.isEmpty()) {
+                int num = Integer.parseInt(element);
+                if (num > 1000)
+                    num = 0;
+                sum += num;
+            }
         }
 
         return sum;
