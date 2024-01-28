@@ -83,4 +83,11 @@ public class IncrementalKataTest {
         assertThat(result).isEqualTo(6);
     }
 
+    @Test
+    @DisplayName("Multiple delimiters should return sum")
+    void multipleDelimitersShouldReturnSum() {
+        int result = IncrementalKata.add("//[*][%]\n1*2%3");
+        assertThat(result).isEqualTo(6);
+    }
+
 }
