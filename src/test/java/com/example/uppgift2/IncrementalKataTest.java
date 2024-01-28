@@ -57,7 +57,16 @@ public class IncrementalKataTest {
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
             IncrementalKata.add("-1");
         });
-        assertThat(thrown.getMessage()).isEqualTo("negatives not allowed -1");
+        assertThat(thrown.getMessage()).contains("negatives not allowed -1");
+    }
+
+    @Test
+    @DisplayName("Multiple negative number should throw exception with message")
+    void multipleNegativeNumberShouldThrowException() {
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+            IncrementalKata.add("-1,2,3,-4");
+        });
+        assertThat(thrown.getMessage()).contains("negatives not allowed -1,-4");
     }
 
 }

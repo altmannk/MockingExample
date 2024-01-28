@@ -19,15 +19,20 @@ public class IncrementalKata {
         if (numbers.contains(",\n"))
             throw new IllegalArgumentException("Error: invalid input, contains ',\\n'");
 
+        StringBuilder negativeNumbers = new StringBuilder();
+        for (String element : numArray) {
+            if (element.startsWith("-"))
+                negativeNumbers.append(element).append(",");
+        }
+        if (numbers.contains("-"))
+            throw new IllegalArgumentException("negatives not allowed " + negativeNumbers);
+
         int sum = 0;
         for (String element : numArray) {
             int num = Integer.parseInt(element);
-            if (num < 0)
-                throw new IllegalArgumentException("negatives not allowed " + num);
-
             sum += num;
         }
+
         return sum;
     }
-
 }
