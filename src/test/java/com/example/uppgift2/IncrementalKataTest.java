@@ -69,4 +69,11 @@ public class IncrementalKataTest {
         assertThat(thrown.getMessage()).contains("negatives not allowed -1,-4");
     }
 
+    @Test
+    @DisplayName("Numbers bigger than 1000 should be ignored")
+    void numbersBiggerThan1000ShouldBeIgnored() {
+        int result = IncrementalKata.add("2,1001");
+        assertThat(result).isEqualTo(2);
+    }
+
 }

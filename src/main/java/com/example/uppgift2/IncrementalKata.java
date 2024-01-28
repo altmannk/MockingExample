@@ -30,6 +30,8 @@ public class IncrementalKata {
         int sum = 0;
         for (String element : numArray) {
             int num = Integer.parseInt(element);
+            if (num > 1000)
+                num = 0;
             sum += num;
         }
 
